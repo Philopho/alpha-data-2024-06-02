@@ -1,0 +1,36 @@
+name: "Telegram Notification"
+
+on:  
+  workflow_run:
+    workflows: [pages-build-deployment]
+    types:
+      - completed
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  telegram-notify:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: send notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          video: https://Philopho.github.io/alpha-data-2024-06-02/timelapse.mp4
+          message: | 
+            The ${{ github.event_name }} event triggered final step.
+            https://Philopho.github.io/alpha-data-2024-06-02/
