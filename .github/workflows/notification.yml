@@ -16,6 +16,6 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          video: https://Philopho.github.io/alpha-data-2024-06-02/timelapse.mp4
+          format: markdown
           message: | 
             [Video](https://Philopho.github.io/alpha-data-2024-06-02/timelapse.mp4) [Page](https://Philopho.github.io/alpha-data-2024-06-02/) 
