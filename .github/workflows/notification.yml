@@ -18,5 +18,4 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           video: https://Philopho.github.io/alpha-data-2024-06-02/timelapse.mp4
           message: | 
-            The ${{ github.event_name }} event triggered final step.
-            https://Philopho.github.io/alpha-data-2024-06-02/
+            [Video](https://Philopho.github.io/alpha-data-2024-06-02/timelapse.mp4) [Page](https://Philopho.github.io/alpha-data-2024-06-02/) 
